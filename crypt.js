@@ -60,6 +60,24 @@ $(document).ready( function (){
 
     
   });
+
+  $(".decryptable").click(function (e) {
+    id = "decryptable" + Math.floor(Math.random()*20000)
+    $(this).attr("id", id);
+    $("body").append(passwordRequest(id,false,e));
+    $(".decrypt-button").click( function() {
+      var id = $(this).attr("field");
+      $("#" + id).trigger("decrypt");
+      $(this).parents(".password-request-wrapper").remove();
+    });
+    $(this).unbind("click");
+  }).bind("decrypt", function() {
+    var etext = $(this).html();
+    password = $("#password_for_" + $(this).attr("id"))
+    var text = AESDecryptCtr(etext, password.val(), 256);
+    $(this).html(text);
+
+  });
   
   $(".encrypt").click(function() {
   var id = $(this).attr("field");
