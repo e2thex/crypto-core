@@ -90,6 +90,8 @@ function passwordRequest(id,isEncrypt,e) {
   return r;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+/*  AES implementation in JavaScript (c) Chris Veness 2005-2008                                   */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 
 /*
  * AES Cipher function: encrypt 'input' with Rijndael algorithm
