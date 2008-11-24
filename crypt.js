@@ -6,7 +6,7 @@ $(document).ready( function (){
     var insertString ="<input type='button' class = 'encrypt' value ='e' field ='" + id +" '>" + "<input type='button' class = 'decrypt' value ='d' field ='" + id + " '>"+ "<input class = 'decrypt' value ='' id ='password_for_" + id + "'>";
     //$(this).after(insertString);
     $(this).bind("encrypt", function() {
-      var text = $(this).html();
+      var text = $(this).val();
       password = $("#password_for_" + $(this).attr("id"))
       var etext = AESEncryptCtr(text, password.val(), 256);
       rtext = "<div class='decryptable'>" + etext + "</div>";
