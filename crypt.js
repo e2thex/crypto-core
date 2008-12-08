@@ -26,6 +26,7 @@ $(document).ready( function (){
     }).bind("start_decrypt", function(e) {
       var id = $(this).attr("id");
       $("body").append(passwordRequest(id,false, e));
+      $("#password_for_" + id).focus();
       $(".decrypt-button").click( function() {
         var id = $(this).attr("field");
         $("#" + id).trigger("decrypt");
@@ -34,6 +35,7 @@ $(document).ready( function (){
     }).bind("start_encrypt", function(e) {
       var id = $(this).attr("id");
       $("body").append(passwordRequest(id,true, e));
+      $("#password_for_" + id).focus();
       $(".encrypt-button").click( function() {
         var id = $(this).attr("field");
         $("#" + id).trigger("encrypt");
@@ -65,6 +67,7 @@ $(document).ready( function (){
     id = "decryptable" + Math.floor(Math.random()*20000)
     $(this).attr("id", id);
     $("body").append(passwordRequest(id,false,e));
+    $("#password_for_" + id).focus();
     $(".decrypt-button").click( function() {
       var id = $(this).attr("field");
       $("#" + id).trigger("decrypt");
